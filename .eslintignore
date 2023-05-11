@@ -1,0 +1,3 @@
+# https://stackoverflow.com/questions/74413483/eslint-cypress-parsing-error-eslint-was-configured-to-run-on-tsconfigrootd
+.eslintrc.cjs
+*.config.*
