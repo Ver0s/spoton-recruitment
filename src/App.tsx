@@ -40,7 +40,9 @@ function App() {
 		[debouncedTaxId]
 	);
 
-	const priceGross = formData.unit_price * 1.23 * formData.quantity;
+	const priceGross = (formData.unit_price * 1.23 * formData.quantity).toFixed(
+		2
+	);
 
 	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
 		setFormData((prevState) => ({
@@ -192,6 +194,12 @@ function App() {
 						>
 							Please enter price
 						</Form.Message>
+						<Form.Message
+							className="text-[13px] text-red-400"
+							match="stepMismatch"
+						>
+							Price can have at most two decimals
+						</Form.Message>
 					</div>
 					<Form.Control asChild>
 						<input
@@ -199,6 +207,7 @@ function App() {
 							type="number"
 							required
 							min={0}
+							step={0.01}
 							value={formData.unit_price}
 							onChange={handleChange}
 						/>
